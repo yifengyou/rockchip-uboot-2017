@@ -1,9 +1,9 @@
-name: BDY G98 Uboot Build
+name: BDY G98 Only SPI Uboot
 
 on:
   push:
     branches:
-      - kdev
+      - bdy-g98-only-spi
   repository_dispatch:
   workflow_dispatch:
 
@@ -70,14 +70,14 @@ jobs:
       - name: Upload UBOOT to Release
         uses: ncipollo/release-action@main
         with:
-          tag: bdy-g98-uboot
+          tag: bdy-g98-only-spi-uboot
           artifacts: /builder/release/*
           allowUpdates: true
           removeArtifacts: false
           replacesArtifacts: true
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            # 彼度云 G98 UBoot 镜像
+            # 彼度云 G98 Only SPI UBoot 2017 镜像
 
             - 当前发布版本为中间构建产物，仅供开发测试使用，请勿用于生产环境或关键设备
             - 出厂设备默认仅配备 SPI Nor Flash，未焊接 eMMC。由于 SPI Flash 与 eMMC 共用硬件引脚，二者物理上互斥，设备只能选择其中一种作为启动介质，请根据实际硬件配置选择对应的固件。

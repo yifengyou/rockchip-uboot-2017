@@ -10,12 +10,12 @@
 #include <dt-bindings/input/input.h>
 
 / {
-	model = "BYD G98 Compiled By yifengyou v2026.09.07-14:44:04";
+	model = "BYD G98 Compiled By yifengyou v2026.10.26-22:51:49";
 	compatible = "rockchip,rk3588-evb", "rockchip,rk3588";
 
 	chosen {
 		stdout-path = &uart2;
-		u-boot,spl-boot-order = &sdhci, &spi_nand, &spi_nor, &sata1;
+		u-boot,spl-boot-order = &spi_nor;
 	};
 
 	aliases {
@@ -166,21 +166,7 @@
 
 // sdhci: mmc@fe2e0000
 &sdhci {
-	bus-width = <8>;
-	no-sdio;
-	no-sd;
-	supports-emmc;
-	non-removable;
-	mmc-hs200-1_8v;
-	/* 仅在确认硬件支持 HS400 时开启以下两行 */
-	mmc-hs400-1_8v;
-	mmc-hs400-enhanced-strobe;
-	supports-cqe;
-	status = "okay";
-	u-boot,dm-pre-reloc;
-
-	pinctrl-names = "default";
-	pinctrl-0 = <&emmc_clk &emmc_cmd &emmc_data_strobe &emmc_bus8>;
+	status = "disabled";
 };
 
 // sdmmc: mmc@fe2c0000
@@ -197,13 +183,13 @@
 
 // sfc: spi@fe2b0000
 &sfc {
-	status = "disabled";
+	status = "okay";
 	u-boot,dm-pre-reloc;
 
 	/delete-node/ flash@1;
 
 	spi_nor: flash@0 {
-		status = "disabled";
+		status = "okay";
 		u-boot,dm-spl;
 		compatible = "jedec,spi-nor";
 		label = "sfc_nor";
