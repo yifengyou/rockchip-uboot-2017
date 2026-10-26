@@ -58,9 +58,7 @@ jobs:
           sudo /bin/cp -a ${{ github.workspace }}/* .
           ls -alh
           ./kdev-build.sh
-
-          sudo mkdir -p /builder/release
-          sudo cp output/* /builder/release
+          ls -alh  /builder/release/*
 
       - name: List build output
         run: |

@@ -14,7 +14,7 @@
     compatible = "rockchip,rk3588-evb", "rockchip,rk3588";
     #address-cells = <0x00000002>;
     #size-cells = <0x00000002>;
-    model = "BYD G98 Compiled By yifengyou v2026.10.26-22:51:49";
+    model = "BYD G98 Compiled By yifengyou v2026.10.26-23:03:40";
     aliases {
         ethernet1 = "/pcie@fe170000";
         serial2 = "/serial@feb50000";
